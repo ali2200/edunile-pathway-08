@@ -115,7 +115,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Cairo', 'Amiri', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Hacen Maghreb', 'Cairo', 'Amiri', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     direction: rtl;
   }
   
@@ -123,13 +123,21 @@ All colors MUST be HSL.
     direction: rtl;
   }
   
-  /* Arabic Typography */
-  .font-arabic {
+  /* Typography */
+  .font-primary {
+    font-family: 'Hacen Maghreb', 'Cairo', 'Amiri', sans-serif;
+  }
+  
+  .font-secondary {
     font-family: 'Cairo', 'Amiri', sans-serif;
   }
   
+  .font-arabic {
+    font-family: 'Hacen Maghreb', 'Cairo', 'Amiri', sans-serif;
+  }
+  
   .font-arabic-bold {
-    font-family: 'Cairo', 'Amiri', sans-serif;
+    font-family: 'Hacen Maghreb', 'Cairo', 'Amiri', sans-serif;
     font-weight: 700;
   }
   

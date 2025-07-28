@@ -124,10 +124,10 @@ const Home = () => {
       {/* About Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-primary font-bold text-foreground">
                   من نحن؟
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -140,15 +140,15 @@ const Home = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-reverse space-x-3">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <feature.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                      <h3 className="font-primary font-semibold text-foreground">{feature.title}</h3>
+                      <p className="text-sm font-secondary text-muted-foreground">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -162,31 +162,31 @@ const Home = () => {
               </Button>
             </div>
             
-            <div className="relative">
+            <div className="relative mt-8 lg:mt-0">
               <div className="relative rounded-2xl overflow-hidden shadow-elegant">
                 <img
                   src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800"
                   alt="طلاب في الجامعة"
-                  className="w-full h-96 object-cover"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                 
                 {/* Video Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Button size="lg" className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm">
-                    <Play className="w-6 h-6 text-white fill-current" />
+                  <Button size="lg" className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm">
+                    <Play className="w-4 h-4 md:w-6 md:h-6 text-white fill-current" />
                   </Button>
                 </div>
               </div>
               
               {/* Stats Cards */}
-              <div className="absolute -bottom-8 left-4 right-4">
-                <div className="grid grid-cols-2 gap-4">
+              <div className="absolute -bottom-6 md:-bottom-8 left-2 right-2 md:left-4 md:right-4">
+                <div className="grid grid-cols-2 gap-2 md:gap-4">
                   {stats.slice(0, 2).map((stat, index) => (
                     <Card key={index} className="bg-white shadow-lg">
-                      <CardContent className="p-4 text-center">
-                        <div className="text-2xl font-bold text-primary">{stat.number}</div>
-                        <div className="text-sm text-muted-foreground">{stat.label}</div>
+                      <CardContent className="p-3 md:p-4 text-center">
+                        <div className="text-lg md:text-2xl font-primary font-bold text-primary">{stat.number}</div>
+                        <div className="text-xs md:text-sm font-secondary text-muted-foreground">{stat.label}</div>
                       </CardContent>
                     </Card>
                   ))}
@@ -201,15 +201,15 @@ const Home = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-primary font-bold text-foreground">
               خدماتنا المتكاملة
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg font-secondary text-muted-foreground max-w-2xl mx-auto px-4">
               نقدم حلولاً شاملة تغطي جميع احتياجات الطالب العربي للدراسة في مصر
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}

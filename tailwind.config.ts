@@ -19,8 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'arabic': ['Cairo', 'Amiri', 'sans-serif'],
-				'arabic-bold': ['Cairo', 'Amiri', 'sans-serif'],
+				'primary': ['Hacen Maghreb', 'Cairo', 'Amiri', 'sans-serif'],
+				'secondary': ['Cairo', 'Amiri', 'sans-serif'],
+				'arabic': ['Hacen Maghreb', 'Cairo', 'Amiri', 'sans-serif'],
+				'arabic-bold': ['Hacen Maghreb', 'Cairo', 'Amiri', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

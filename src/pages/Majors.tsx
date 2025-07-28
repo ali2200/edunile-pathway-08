@@ -144,24 +144,24 @@ const Majors = () => {
       {/* Hero Section */}
       <section className="py-16 bg-primary-gradient text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl lg:text-5xl font-bold">
+          <div className="text-center space-y-6 px-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-primary font-bold">
               التخصصات الجامعية المتاحة
             </h1>
-            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-secondary opacity-90 max-w-3xl mx-auto">
               اكتشف مجموعة واسعة من التخصصات الأكاديمية في أفضل الجامعات المصرية المعتمدة دولياً
             </p>
           </div>
           
           {/* University Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12 px-4">
             {universityStats.map((uni, index) => (
               <Card key={index} className="bg-white/10 border-white/20 text-white">
-                <CardContent className="p-4 text-center">
+                <CardContent className="p-3 md:p-4 text-center">
                   <div className="space-y-2">
-                    <h3 className="font-semibold">{uni.name}</h3>
-                    <div className="text-2xl font-bold text-secondary">{uni.programs}</div>
-                    <div className="text-sm opacity-80">تخصص متاح</div>
+                    <h3 className="font-primary font-semibold text-sm md:text-base">{uni.name}</h3>
+                    <div className="text-xl md:text-2xl font-primary font-bold text-secondary">{uni.programs}</div>
+                    <div className="text-xs md:text-sm font-secondary opacity-80">تخصص متاح</div>
                     <Badge variant="secondary" className="text-xs">
                       {uni.rank}
                     </Badge>
@@ -179,18 +179,18 @@ const Majors = () => {
           {majors.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-16">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-foreground mb-4">
+                <h2 className="text-2xl md:text-3xl font-primary font-bold text-foreground mb-4">
                   {category.category}
                 </h2>
                 <div className="w-24 h-1 bg-secondary mx-auto rounded"></div>
               </div>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {category.programs.map((program, programIndex) => (
                   <Card key={programIndex} className={`hover:shadow-elegant transition-smooth ${program.popular ? 'ring-2 ring-secondary' : ''}`}>
                     <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <CardTitle className="text-xl font-bold text-foreground">
+                      <div className="flex items-start justify-between flex-wrap gap-2">
+                        <CardTitle className="text-lg md:text-xl font-primary font-bold text-foreground">
                           {program.name}
                         </CardTitle>
                         {program.popular && (
@@ -219,7 +219,7 @@ const Majors = () => {
                       </div>
                       
                       {/* Details Grid */}
-                      <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         <div className="flex items-center space-x-reverse space-x-2">
                           <Clock className="w-4 h-4 text-primary" />
                           <div>
@@ -273,11 +273,11 @@ const Majors = () => {
       {/* CTA Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+          <div className="max-w-3xl mx-auto space-y-6 px-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-primary font-bold text-foreground">
               لم تجد التخصص المناسب؟
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base md:text-lg font-secondary text-muted-foreground">
               تواصل معنا للحصول على استشارة مجانية حول أفضل التخصصات المناسبة لخلفيتك الأكاديمية وأهدافك المهنية
             </p>
             
