@@ -80,14 +80,14 @@ const HeroSection = () => {
               </Button>
               
               <div className="flex gap-3">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline-white" asChild>
                 <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer" className="flex items-center">
                   <MessageCircle className="w-5 h-5 ml-2" />
                   واتساب
                 </a>
               </Button>
               
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline-white" asChild>
                 <a href="tel:+201019434737" className="flex items-center">
                   <Phone className="w-5 h-5 ml-2" />
                   اتصل بنا

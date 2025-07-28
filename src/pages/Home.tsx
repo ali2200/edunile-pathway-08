@@ -277,7 +277,7 @@ const Home = () => {
           </div>
           
           <div className="text-center mt-8">
-            <Button asChild variant="outline">
+            <Button asChild variant="outline-primary">
               <Link to="/testimonials" className="flex items-center space-x-reverse space-x-2">
                 <span>اطلع على المزيد من الآراء</span>
                 <ArrowLeft className="w-4 h-4" />
@@ -303,13 +303,13 @@ const Home = () => {
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
                 <Link to="/how-to-start">ابدأ الآن</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/contact">احصل على استشارة مجانية</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/student/login">دخول الطلاب</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/admin/login">دخول الأدمن</Link>
               </Button>
             </div>
