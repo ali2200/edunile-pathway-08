@@ -209,10 +209,10 @@ const Majors = () => {
             
             {/* Quick Navigation */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button variant="outline-white" asChild>
                 <Link to="/majors/universities">تصفح الجامعات</Link>
               </Button>
-              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button variant="outline-white" asChild>
                 <Link to="/majors/fields">تصفح المجالات</Link>
               </Button>
             </div>
@@ -232,8 +232,8 @@ const Majors = () => {
                     </Badge>
                     <Button 
                       size="sm" 
-                      variant="outline" 
-                      className="w-full border-white/30 text-white hover:bg-white/20 text-xs mt-2"
+                      variant="outline-white"
+                      className="w-full text-xs mt-2"
                       asChild
                     >
                       <Link to={`/majors/universities/${uni.id}`}>
@@ -343,7 +343,7 @@ const Majors = () => {
                           </Link>
                         </Button>
                         <Button 
-                          variant="outline"
+                          variant="outline-primary"
                           asChild
                         >
                           <Link to="/how-to-start">
@@ -445,7 +445,7 @@ const Majors = () => {
                             </Link>
                           </Button>
                           <Button 
-                            variant="outline"
+                            variant="outline-primary"
                             asChild
                           >
                             <Link to="/how-to-start">
@@ -478,7 +478,7 @@ const Majors = () => {
               <Button size="lg" className="bg-primary-gradient" asChild>
                 <Link to="/contact">استشارة مجانية</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer">
                   تواصل عبر واتساب
                 </a>
