@@ -125,7 +125,7 @@ const HowToStart = () => {
                   ابدأ الآن - استشارة مجانية
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline-white" asChild>
                 <a href="tel:+201019434737">
                   <Phone className="w-5 h-5 ml-2" />
                   اتصل مباشرة
@@ -308,7 +308,7 @@ const HowToStart = () => {
                   ابدأ رحلتك الآن
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/contact" className="flex items-center space-x-reverse space-x-2">
                   <span>طرق التواصل الأخرى</span>
                   <ArrowLeft className="w-4 h-4" />
