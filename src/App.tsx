@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Majors from "./pages/Majors";
+import Universities from "./pages/majors/Universities";
+import UniversityDetails from "./pages/majors/UniversityDetails";
+import Fields from "./pages/majors/Fields";
+import MajorDetails from "./pages/majors/MajorDetails";
 import AcademicServices from "./pages/AcademicServices";
 import GeneralServices from "./pages/GeneralServices";
 import ResearchServices from "./pages/ResearchServices";
@@ -44,6 +48,10 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/majors" element={<Majors />} />
+          <Route path="/majors/universities" element={<Universities />} />
+          <Route path="/majors/universities/:universityId" element={<UniversityDetails />} />
+          <Route path="/majors/fields" element={<Fields />} />
+          <Route path="/major/:majorId" element={<MajorDetails />} />
           <Route path="/academic-services" element={<AcademicServices />} />
           <Route path="/general-services" element={<GeneralServices />} />
           <Route path="/research-services" element={<ResearchServices />} />

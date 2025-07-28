@@ -11,6 +11,40 @@ import { useState, useEffect } from "react";
 import { universitiesData, filterMajors } from "@/data/universitiesData";
 
 const Majors = () => {
+  const [searchParams] = useSearchParams();
+  const [filters, setFilters] = useState<any>({});
+  const [filteredResults, setFilteredResults] = useState<any[]>([]);
+  const [showFiltered, setShowFiltered] = useState(false);
+
+  // Handle URL params for pre-filtering
+  useEffect(() => {
+    const fieldParam = searchParams.get('field');
+    if (fieldParam) {
+      setFilters({ field: fieldParam });
+      handleFilterChange({ field: fieldParam });
+    }
+  }, [searchParams]);
+
+  const handleFilterChange = (newFilters: any) => {
+    setFilters(newFilters);
+    const results = filterMajors(newFilters);
+    setFilteredResults(results);
+    setShowFiltered(Object.keys(newFilters).length > 0);
+  };
+
+  const handleClearFilters = () => {
+    setFilters({});
+    setFilteredResults([]);
+    setShowFiltered(false);
+  };
+
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      // Redirect to search results or handle search logic
+      console.log('Searching for:', query);
+    }
+  };
+
   const majors = [
     {
       category: "الطب والعلوم الصحية",
@@ -22,7 +56,8 @@ const Majors = () => {
           fees: "25,000 - 35,000 جنيه/سنة",
           language: "العربية/الإنجليزية",
           requirements: "الثانوية العامة 85%+",
-          popular: true
+          popular: true,
+          id: "human-medicine"
         },
         {
           name: "طب الأسنان",
@@ -30,7 +65,8 @@ const Majors = () => {
           duration: "5 سنوات",
           fees: "20,000 - 30,000 جنيه/سنة",
           language: "العربية/الإنجليزية",
-          requirements: "الثانوية العامة 80%+"
+          requirements: "الثانوية العامة 80%+",
+          id: "dentistry"
         },
         {
           name: "الصيدلة",
@@ -38,7 +74,8 @@ const Majors = () => {
           duration: "5 سنوات",
           fees: "18,000 - 25,000 جنيه/سنة",
           language: "العربية/الإنجليزية",
-          requirements: "الثانوية العامة 75%+"
+          requirements: "الثانوية العامة 75%+",
+          id: "pharmacy"
         }
       ]
     },
@@ -52,7 +89,8 @@ const Majors = () => {
           fees: "15,000 - 22,000 جنيه/سنة",
           language: "العربية/الإنجليزية",
           requirements: "الثانوية العامة 70%+",
-          popular: true
+          popular: true,
+          id: "civil-engineering"
         },
         {
           name: "هندسة الحاسبات",
@@ -60,7 +98,8 @@ const Majors = () => {
           duration: "5 سنوات",
           fees: "18,000 - 25,000 جنيه/سنة",
           language: "العربية/الإنجليزية",
-          requirements: "الثانوية العامة 75%+"
+          requirements: "الثانوية العامة 75%+",
+          id: "computer-engineering"
         },
         {
           name: "الهندسة الكهربائية",
@@ -68,7 +107,8 @@ const Majors = () => {
           duration: "5 سنوات",
           fees: "16,000 - 23,000 جنيه/سنة",
           language: "العربية/الإنجليزية",
-          requirements: "الثانوية العامة 72%+"
+          requirements: "الثانوية العامة 72%+",
+          id: "electrical-engineering"
         }
       ]
     },
@@ -82,7 +122,8 @@ const Majors = () => {
           fees: "30,000 - 80,000 جنيه/سنة",
           language: "الإنجليزية/العربية",
           requirements: "بكالوريوس + خبرة عملية",
-          popular: true
+          popular: true,
+          id: "mba"
         },
         {
           name: "الاقتصاد",
@@ -90,7 +131,8 @@ const Majors = () => {
           duration: "4 سنوات",
           fees: "12,000 - 18,000 جنيه/سنة",
           language: "العربية",
-          requirements: "الثانوية العامة 65%+"
+          requirements: "الثانوية العامة 65%+",
+          id: "economics"
         },
         {
           name: "المحاسبة",
@@ -98,7 +140,8 @@ const Majors = () => {
           duration: "4 سنوات",
           fees: "10,000 - 16,000 جنيه/سنة",
           language: "العربية",
-          requirements: "الثانوية العامة 60%+"
+          requirements: "الثانوية العامة 60%+",
+          id: "accounting"
         }
       ]
     },
@@ -112,7 +155,8 @@ const Majors = () => {
           fees: "8,000 - 12,000 جنيه/سنة",
           language: "العربية",
           requirements: "الثانوية العامة 55%+",
-          popular: true
+          popular: true,
+          id: "islamic-sharia"
         },
         {
           name: "اللغة العربية وآدابها",
@@ -120,7 +164,8 @@ const Majors = () => {
           duration: "4 سنوات",
           fees: "7,000 - 11,000 جنيه/سنة",
           language: "العربية",
-          requirements: "الثانوية العامة 50%+"
+          requirements: "الثانوية العامة 50%+",
+          id: "arabic-literature"
         },
         {
           name: "التاريخ الإسلامي",
@@ -128,17 +173,18 @@ const Majors = () => {
           duration: "4 سنوات",
           fees: "7,500 - 12,000 جنيه/سنة",
           language: "العربية",
-          requirements: "الثانوية العامة 50%+"
+          requirements: "الثانوية العامة 50%+",
+          id: "islamic-history"
         }
       ]
     }
   ];
 
   const universityStats = [
-    { name: "جامعة القاهرة", programs: 15, rank: "#1 في مصر" },
-    { name: "جامعة الأزهر", programs: 12, rank: "#1 علوم شرعية" },
-    { name: "جامعة عين شمس", programs: 10, rank: "#2 في مصر" },
-    { name: "الجامعة الأمريكية", programs: 8, rank: "#1 خاصة" }
+    { name: "جامعة القاهرة", programs: 15, rank: "#1 في مصر", id: "cairo-university" },
+    { name: "جامعة الأزهر", programs: 12, rank: "#1 علوم شرعية", id: "al-azhar-university" },
+    { name: "جامعة عين شمس", programs: 10, rank: "#2 في مصر", id: "ain-shams-university" },
+    { name: "الجامعة الأمريكية", programs: 8, rank: "#1 خاصة", id: "american-university" }
   ];
 
   return (
@@ -155,20 +201,45 @@ const Majors = () => {
             <p className="text-lg md:text-xl font-secondary opacity-90 max-w-3xl mx-auto">
               اكتشف مجموعة واسعة من التخصصات الأكاديمية في أفضل الجامعات المصرية المعتمدة دولياً
             </p>
+            
+            {/* Search Box */}
+            <div className="mt-8">
+              <SearchBox onSearch={handleSearch} />
+            </div>
+            
+            {/* Quick Navigation */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <Link to="/majors/universities">تصفح الجامعات</Link>
+              </Button>
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <Link to="/majors/fields">تصفح المجالات</Link>
+              </Button>
+            </div>
           </div>
           
           {/* University Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12 px-4">
             {universityStats.map((uni, index) => (
-              <Card key={index} className="bg-white/10 border-white/20 text-white">
+              <Card key={index} className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-colors group">
                 <CardContent className="p-3 md:p-4 text-center">
                   <div className="space-y-2">
-                    <h3 className="font-primary font-semibold text-sm md:text-base">{uni.name}</h3>
+                    <h3 className="font-primary font-semibold text-sm md:text-base group-hover:text-secondary transition-colors">{uni.name}</h3>
                     <div className="text-xl md:text-2xl font-primary font-bold text-secondary">{uni.programs}</div>
                     <div className="text-xs md:text-sm font-secondary opacity-80">تخصص متاح</div>
                     <Badge variant="secondary" className="text-xs">
                       {uni.rank}
                     </Badge>
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="w-full border-white/30 text-white hover:bg-white/20 text-xs mt-2"
+                      asChild
+                    >
+                      <Link to={`/majors/universities/${uni.id}`}>
+                        عرض التفاصيل
+                      </Link>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -177,27 +248,38 @@ const Majors = () => {
         </div>
       </section>
 
+      {/* Filters Section */}
+      <section className="py-8 bg-background">
+        <div className="container mx-auto px-4">
+          <FilterSystem 
+            filters={filters}
+            onFilterChange={handleFilterChange}
+            onClearFilters={handleClearFilters}
+          />
+        </div>
+      </section>
+
       {/* Majors Content */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          {majors.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-16">
+          {showFiltered ? (
+            // Show filtered results
+            <div>
               <div className="text-center mb-8">
                 <h2 className="text-2xl md:text-3xl font-primary font-bold text-foreground mb-4">
-                  {category.category}
+                  نتائج البحث ({filteredResults.length})
                 </h2>
-                <div className="w-24 h-1 bg-secondary mx-auto rounded"></div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {category.programs.map((program, programIndex) => (
-                  <Card key={programIndex} className={`hover:shadow-elegant transition-smooth ${program.popular ? 'ring-2 ring-secondary' : ''}`}>
+                {filteredResults.map((result, index) => (
+                  <Card key={index} className={`hover:shadow-elegant transition-smooth ${result.major.popular ? 'ring-2 ring-secondary' : ''}`}>
                     <CardHeader>
                       <div className="flex items-start justify-between flex-wrap gap-2">
                         <CardTitle className="text-lg md:text-xl font-primary font-bold text-foreground">
-                          {program.name}
+                          {result.major.name}
                         </CardTitle>
-                        {program.popular && (
+                        {result.major.popular && (
                           <Badge className="bg-secondary text-primary">
                             <Star className="w-3 h-3 ml-1" />
                             الأكثر طلباً
@@ -207,19 +289,13 @@ const Majors = () => {
                     </CardHeader>
                     
                     <CardContent className="space-y-4">
-                      {/* Universities */}
+                      {/* University and College */}
                       <div>
                         <div className="flex items-center space-x-reverse space-x-2 mb-2">
                           <GraduationCap className="w-4 h-4 text-primary" />
-                          <span className="text-sm font-semibold">الجامعات المتاحة:</span>
+                          <span className="text-sm font-semibold">{result.university.name}</span>
                         </div>
-                        <div className="flex flex-wrap gap-1">
-                          {program.universities.map((uni, uniIndex) => (
-                            <Badge key={uniIndex} variant="outline" className="text-xs">
-                              {uni}
-                            </Badge>
-                          ))}
-                        </div>
+                        <p className="text-xs text-muted-foreground">{result.college.name}</p>
                       </div>
                       
                       {/* Details Grid */}
@@ -228,7 +304,7 @@ const Majors = () => {
                           <Clock className="w-4 h-4 text-primary" />
                           <div>
                             <div className="font-medium">المدة</div>
-                            <div className="text-muted-foreground">{program.duration}</div>
+                            <div className="text-muted-foreground">{result.major.duration}</div>
                           </div>
                         </div>
                         
@@ -236,7 +312,7 @@ const Majors = () => {
                           <DollarSign className="w-4 h-4 text-primary" />
                           <div>
                             <div className="font-medium">الرسوم</div>
-                            <div className="text-muted-foreground">{program.fees}</div>
+                            <div className="text-muted-foreground">{result.major.fees}</div>
                           </div>
                         </div>
                         
@@ -244,7 +320,7 @@ const Majors = () => {
                           <BookOpen className="w-4 h-4 text-primary" />
                           <div>
                             <div className="font-medium">لغة الدراسة</div>
-                            <div className="text-muted-foreground">{program.language}</div>
+                            <div className="text-muted-foreground">{result.major.language}</div>
                           </div>
                         </div>
                         
@@ -252,25 +328,138 @@ const Majors = () => {
                           <Users className="w-4 h-4 text-primary" />
                           <div>
                             <div className="font-medium">متطلبات القبول</div>
-                            <div className="text-muted-foreground">{program.requirements}</div>
+                            <div className="text-muted-foreground">{result.major.requirements}</div>
                           </div>
                         </div>
                       </div>
                       
-                      <Button 
-                        className={`w-full ${program.popular ? 'bg-secondary-gradient hover:opacity-90' : 'bg-primary-gradient'}`}
-                        asChild
-                      >
-                        <Link to="/how-to-start">
-                          تقدم للبرنامج
-                        </Link>
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button 
+                          className="flex-1 bg-primary-gradient"
+                          asChild
+                        >
+                          <Link to={`/major/${result.major.id}`}>
+                            التفاصيل
+                          </Link>
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          asChild
+                        >
+                          <Link to="/how-to-start">
+                            تقدم الآن
+                          </Link>
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
             </div>
-          ))}
+          ) : (
+            // Show original categorized view
+            majors.map((category, categoryIndex) => (
+              <div key={categoryIndex} className="mb-16">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl md:text-3xl font-primary font-bold text-foreground mb-4">
+                    {category.category}
+                  </h2>
+                  <div className="w-24 h-1 bg-secondary mx-auto rounded"></div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                  {category.programs.map((program, programIndex) => (
+                    <Card key={programIndex} className={`hover:shadow-elegant transition-smooth ${program.popular ? 'ring-2 ring-secondary' : ''}`}>
+                      <CardHeader>
+                        <div className="flex items-start justify-between flex-wrap gap-2">
+                          <CardTitle className="text-lg md:text-xl font-primary font-bold text-foreground">
+                            {program.name}
+                          </CardTitle>
+                          {program.popular && (
+                            <Badge className="bg-secondary text-primary">
+                              <Star className="w-3 h-3 ml-1" />
+                              الأكثر طلباً
+                            </Badge>
+                          )}
+                        </div>
+                      </CardHeader>
+                      
+                      <CardContent className="space-y-4">
+                        {/* Universities */}
+                        <div>
+                          <div className="flex items-center space-x-reverse space-x-2 mb-2">
+                            <GraduationCap className="w-4 h-4 text-primary" />
+                            <span className="text-sm font-semibold">الجامعات المتاحة:</span>
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            {program.universities.map((uni, uniIndex) => (
+                              <Badge key={uniIndex} variant="outline" className="text-xs">
+                                {uni}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {/* Details Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                          <div className="flex items-center space-x-reverse space-x-2">
+                            <Clock className="w-4 h-4 text-primary" />
+                            <div>
+                              <div className="font-medium">المدة</div>
+                              <div className="text-muted-foreground">{program.duration}</div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center space-x-reverse space-x-2">
+                            <DollarSign className="w-4 h-4 text-primary" />
+                            <div>
+                              <div className="font-medium">الرسوم</div>
+                              <div className="text-muted-foreground">{program.fees}</div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center space-x-reverse space-x-2">
+                            <BookOpen className="w-4 h-4 text-primary" />
+                            <div>
+                              <div className="font-medium">لغة الدراسة</div>
+                              <div className="text-muted-foreground">{program.language}</div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center space-x-reverse space-x-2">
+                            <Users className="w-4 h-4 text-primary" />
+                            <div>
+                              <div className="font-medium">متطلبات القبول</div>
+                              <div className="text-muted-foreground">{program.requirements}</div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="flex gap-2">
+                          <Button 
+                            className={`flex-1 ${program.popular ? 'bg-secondary-gradient hover:opacity-90' : 'bg-primary-gradient'}`}
+                            asChild
+                          >
+                            <Link to={`/major/${program.id}`}>
+                              التفاصيل
+                            </Link>
+                          </Button>
+                          <Button 
+                            variant="outline"
+                            asChild
+                          >
+                            <Link to="/how-to-start">
+                              تقدم الآن
+                            </Link>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </section>
 
