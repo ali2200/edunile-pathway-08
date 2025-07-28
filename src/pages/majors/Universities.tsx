@@ -71,7 +71,7 @@ const Universities = () => {
           </Button>
           
           {university.website && (
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline-primary" size="sm" asChild>
               <a href={university.website} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 ml-1" />
                 الموقع
@@ -184,7 +184,7 @@ const Universities = () => {
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
                 <Link to="/contact">استشارة مجانية</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/majors">تصفح التخصصات</Link>
               </Button>
             </div>

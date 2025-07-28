@@ -98,7 +98,7 @@ const UniversityDetails = () => {
                 </div>
                 {university.website && (
                   <div className="flex items-center space-x-reverse space-x-2">
-                    <Button variant="outline" size="sm" asChild className="border-white/30 text-white hover:bg-white/10">
+                    <Button variant="outline-white" size="sm" asChild>
                       <a href={university.website} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 ml-1" />
                         الموقع الرسمي
@@ -189,7 +189,7 @@ const UniversityDetails = () => {
                             </Button>
                             <Button 
                               size="sm" 
-                              variant="outline" 
+                              variant="outline-primary" 
                               className="text-xs"
                               asChild
                             >
@@ -224,10 +224,10 @@ const UniversityDetails = () => {
               <Button size="lg" className="bg-primary-gradient" asChild>
                 <Link to="/contact">استشارة مجانية</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/how-to-start">ابدأ التقديم</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer">
                   تواصل عبر واتساب
                 </a>

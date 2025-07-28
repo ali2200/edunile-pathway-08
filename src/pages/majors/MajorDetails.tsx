@@ -119,7 +119,7 @@ const MajorDetails = () => {
                 <Button size="lg" className="bg-secondary text-primary hover:bg-secondary/90" asChild>
                   <Link to="/how-to-start">ابدأ التقديم الآن</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <Button size="lg" variant="outline-white" asChild>
                   <Link to="/contact">استشارة مجانية</Link>
                 </Button>
               </div>
@@ -226,7 +226,7 @@ const MajorDetails = () => {
                       </Link>
                     </Button>
                     {university.website && (
-                      <Button variant="outline" size="sm" className="w-full" asChild>
+                      <Button variant="outline-primary" size="sm" className="w-full" asChild>
                         <a href={university.website} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 ml-1" />
                           الموقع الرسمي
@@ -250,7 +250,7 @@ const MajorDetails = () => {
                     <Button size="sm" className="w-full bg-primary text-white" asChild>
                       <Link to="/how-to-start">ابدأ الآن</Link>
                     </Button>
-                    <Button size="sm" variant="outline" className="w-full border-primary text-primary" asChild>
+                    <Button size="sm" variant="outline-primary" className="w-full" asChild>
                       <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer">
                         تواصل واتساب
                       </a>

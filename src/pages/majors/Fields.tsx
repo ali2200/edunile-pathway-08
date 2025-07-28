@@ -233,7 +233,7 @@ const Fields = () => {
                     <p className="text-sm font-secondary text-muted-foreground">
                       {fieldMajors.length} تخصص متاح في {new Set(fieldMajors.map(fm => fm.university.id)).size} جامعات
                     </p>
-                    <Button size="sm" variant="outline" asChild>
+                    <Button size="sm" variant="outline-primary" asChild>
                       <Link to={`/majors?field=${field.id}`}>
                         عرض التخصصات
                       </Link>
@@ -261,7 +261,7 @@ const Fields = () => {
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
                 <Link to="/contact">استشارة مجانية</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/majors">تصفح جميع التخصصات</Link>
               </Button>
             </div>
