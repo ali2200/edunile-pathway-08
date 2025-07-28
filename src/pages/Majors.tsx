@@ -1,10 +1,14 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SearchBox from "@/components/majors/SearchBox";
+import FilterSystem from "@/components/majors/FilterSystem";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Clock, DollarSign, BookOpen, Users, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { universitiesData, filterMajors } from "@/data/universitiesData";
 
 const Majors = () => {
   const majors = [
