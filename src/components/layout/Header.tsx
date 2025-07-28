@@ -52,10 +52,10 @@ const Header = () => {
 
           {/* Login & Contact Buttons */}
           <div className="hidden md:flex items-center space-x-reverse space-x-3">
-            <Button size="sm" variant="ghost" asChild>
+            <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
               <Link to="/student/login">دخول الطلاب</Link>
             </Button>
-            <Button size="sm" variant="ghost" asChild>
+            <Button size="sm" className="bg-primary-gradient hover:opacity-90 text-white" asChild>
               <Link to="/admin/login">دخول الأدمن</Link>
             </Button>
             <Button size="sm" variant="outline" asChild>
@@ -107,10 +107,10 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-3 border-t border-border">
-                <Button size="sm" variant="outline" asChild>
+                <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
                   <Link to="/student/login">دخول الطلاب</Link>
                 </Button>
-                <Button size="sm" variant="outline" asChild>
+                <Button size="sm" className="bg-primary-gradient hover:opacity-90 text-white" asChild>
                   <Link to="/admin/login">دخول الأدمن</Link>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
