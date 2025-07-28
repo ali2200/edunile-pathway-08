@@ -183,7 +183,7 @@ const ResearchServices = () => {
                   استشارة بحثية مجانية
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline-white" asChild>
                 <Link to="/contact">تواصل معنا</Link>
               </Button>
             </div>
@@ -305,7 +305,7 @@ const ResearchServices = () => {
                     </div>
                   </div>
                   
-                  <Button variant="outline" className="w-full" asChild>
+                  <Button variant="outline-primary" className="w-full" asChild>
                     <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer">
                       استفسر عن المجال
                     </a>
@@ -396,7 +396,7 @@ const ResearchServices = () => {
                   استشارة بحثية مجانية
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/contact" className="flex items-center space-x-reverse space-x-2">
                   <span>تواصل معنا</span>
                   <ArrowLeft className="w-4 h-4" />
