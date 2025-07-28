@@ -171,7 +171,7 @@ const AcademicServices = () => {
                   ابدأ رحلتك الآن
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline-white" asChild>
                 <Link to="/how-to-start">كيف تبدأ؟</Link>
               </Button>
             </div>
@@ -311,7 +311,7 @@ const AcademicServices = () => {
                   استشارة مجانية عبر واتساب
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+              <Button size="lg" variant="outline-primary" asChild>
                 <Link to="/contact" className="flex items-center space-x-reverse space-x-2">
                   <span>تواصل معنا</span>
                   <ArrowLeft className="w-4 h-4" />
