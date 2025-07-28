@@ -144,7 +144,7 @@ const About = () => {
               <Button size="lg" className="bg-secondary text-primary hover:bg-secondary/90">
                 تواصل معنا
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline-white">
                 خدماتنا
               </Button>
             </div>
