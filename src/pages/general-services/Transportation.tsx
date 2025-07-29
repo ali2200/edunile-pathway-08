@@ -82,21 +82,28 @@ const Transportation = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16 bg-primary-gradient text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-12 bg-primary-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Technology and innovation"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <Link to="/general-services" className="inline-flex items-center space-x-reverse space-x-2 text-white/80 hover:text-white mb-6 transition-smooth">
+            <Link to="/general-services" className="inline-flex items-center space-x-reverse space-x-2 text-white/80 hover:text-white mb-4 transition-smooth text-sm">
               <ArrowLeft className="w-4 h-4" />
               <span>العودة للخدمات العامة</span>
             </Link>
             
-            <div className="flex items-center space-x-reverse space-x-4 mb-6">
-              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
-                <Car className="w-8 h-8 text-white" />
+            <div className="flex items-center space-x-reverse space-x-4 mb-4">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <Car className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-4xl lg:text-5xl font-bold">خدمات النقل والمواصلات</h1>
-                <p className="text-xl opacity-90 mt-2">تنقل آمن ومريح في جميع أنحاء القاهرة</p>
+                <h1 className="text-3xl lg:text-4xl font-bold">خدمات النقل والمواصلات</h1>
+                <p className="text-lg opacity-90 mt-1">تنقل آمن ومريح في جميع أنحاء القاهرة</p>
               </div>
             </div>
           </div>

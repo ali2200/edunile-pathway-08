@@ -51,21 +51,28 @@ const AirportPickup = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16 bg-primary-gradient text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-12 bg-primary-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Airport and travel"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <Link to="/general-services" className="inline-flex items-center space-x-reverse space-x-2 text-white/80 hover:text-white mb-6 transition-smooth">
+            <Link to="/general-services" className="inline-flex items-center space-x-reverse space-x-2 text-white/80 hover:text-white mb-4 transition-smooth text-sm">
               <ArrowLeft className="w-4 h-4" />
               <span>العودة للخدمات العامة</span>
             </Link>
             
-            <div className="flex items-center space-x-reverse space-x-4 mb-6">
-              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
-                <Plane className="w-8 h-8 text-white" />
+            <div className="flex items-center space-x-reverse space-x-4 mb-4">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <Plane className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-4xl lg:text-5xl font-bold">الاستقبال من المطار</h1>
-                <p className="text-xl opacity-90 mt-2">استقبال آمن ومريح فور وصولك لمصر</p>
+                <h1 className="text-3xl lg:text-4xl font-bold">الاستقبال من المطار</h1>
+                <p className="text-lg opacity-90 mt-1">استقبال آمن ومريح فور وصولك لمصر</p>
               </div>
             </div>
           </div>
@@ -73,15 +80,24 @@ const AirportPickup = () => {
       </section>
 
       {/* Service Details */}
-      <section className="py-16 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-12">
+          <div className="max-w-4xl mx-auto space-y-8">
             
-            {/* Introduction */}
-            <div className="prose prose-lg max-w-none text-right">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                الوصول إلى بلد جديد يمكن أن يكون مرهقاً، خاصة بعد رحلة طويلة. خدمة الاستقبال من المطار تضمن لك بداية مريحة وآمنة لرحلتك الدراسية في مصر. نحن نعلم أن أول انطباع مهم، لذلك نحرص على أن تشعر بالأمان والراحة منذ لحظة وصولك.
-              </p>
+            {/* Introduction with image */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="prose prose-sm max-w-none text-right">
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  الوصول إلى بلد جديد يمكن أن يكون مرهقاً، خاصة بعد رحلة طويلة. خدمة الاستقبال من المطار تضمن لك بداية مريحة وآمنة لرحلتك الدراسية في مصر. نحن نعلم أن أول انطباع مهم، لذلك نحرص على أن تشعر بالأمان والراحة منذ لحظة وصولك.
+                </p>
+              </div>
+              <div className="lg:order-first">
+                <img 
+                  src="https://images.unsplash.com/photo-1470813740244-df37b8c11dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                  alt="Journey and arrival"
+                  className="w-full h-64 object-cover rounded-lg shadow-md"
+                />
+              </div>
             </div>
 
             {/* Service Features */}
