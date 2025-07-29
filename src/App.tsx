@@ -52,9 +52,15 @@ const App = () => (
           <Route path="/majors/universities/:universityId" element={<UniversityDetails />} />
           <Route path="/majors/fields" element={<Fields />} />
           <Route path="/major/:majorId" element={<MajorDetails />} />
-          <Route path="/academic-services" element={<AcademicServices />} />
-          <Route path="/general-services" element={<GeneralServices />} />
-          <Route path="/research-services" element={<ResearchServices />} />
+            <Route path="/academic-services" element={<AcademicServices />} />
+            <Route path="/academic-services/official-admission" element={<OfficialAdmission />} />
+            <Route path="/academic-services/document-preparation" element={<DocumentPreparation />} />
+            <Route path="/academic-services/major-selection" element={<MajorSelection />} />
+            <Route path="/academic-services/academic-followup" element={<AcademicFollowup />} />
+            <Route path="/academic-services/system-explainer" element={<SystemExplainer />} />
+            <Route path="/academic-services/advisor-selection" element={<AdvisorSelection />} />
+            <Route path="/general-services" element={<GeneralServices />} />
+            <Route path="/research-services" element={<ResearchServices />} />
           <Route path="/how-to-start" element={<HowToStart />} />
           <Route path="/contact" element={<Contact />} />
           

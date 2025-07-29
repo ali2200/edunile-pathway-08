@@ -18,6 +18,17 @@ import {
 import { Link } from "react-router-dom";
 
 const AcademicServices = () => {
+  const getServiceSlug = (id: number) => {
+    const slugs = {
+      1: "major-selection",
+      2: "document-preparation", 
+      3: "official-admission",
+      4: "advisor-selection",
+      5: "system-explainer",
+      6: "academic-followup"
+    };
+    return slugs[id as keyof typeof slugs];
+  };
   const services = [
     {
       id: 1,
@@ -256,9 +267,9 @@ const AcademicServices = () => {
                   </div>
                   
                   <Button className="w-full bg-primary-gradient" asChild>
-                    <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer">
-                      اطلب الخدمة
-                    </a>
+                    <Link to={`/academic-services/${getServiceSlug(service.id)}`}>
+                      تفاصيل الخدمة
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
