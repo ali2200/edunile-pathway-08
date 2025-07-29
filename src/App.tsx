@@ -27,6 +27,14 @@ import AdminContent from "./pages/admin/AdminContent";
 import AdminProfile from "./pages/admin/AdminProfile";
 import AdminStudents from "./pages/admin/AdminStudents";
 
+// Academic Services Pages
+import OfficialAdmission from "./pages/academic-services/OfficialAdmission";
+import DocumentPreparation from "./pages/academic-services/DocumentPreparation";
+import MajorSelection from "./pages/academic-services/MajorSelection";
+import AcademicFollowup from "./pages/academic-services/AcademicFollowup";
+import SystemExplainer from "./pages/academic-services/SystemExplainer";
+import AdvisorSelection from "./pages/academic-services/AdvisorSelection";
+
 // Student Pages
 import StudentLogin from "./pages/student/StudentLogin";
 import StudentDashboard from "./pages/student/StudentDashboard";
