@@ -192,9 +192,16 @@ const GeneralServices = () => {
                   </div>
                   
                   <Button className="w-full bg-primary-gradient" asChild>
-                    <a href="https://wa.me/201019434737" target="_blank" rel="noopener noreferrer">
+                    <Link to={`/general-services/${
+                      service.id === 1 ? 'airport-pickup' :
+                      service.id === 2 ? 'visa-support' :
+                      service.id === 3 ? 'housing' :
+                      service.id === 4 ? 'transportation' :
+                      service.id === 5 ? 'general-assistance' :
+                      'orientation-tours'
+                    }`}>
                       اطلب الخدمة
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

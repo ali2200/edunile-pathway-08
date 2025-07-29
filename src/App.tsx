@@ -35,6 +35,14 @@ import AcademicFollowup from "./pages/academic-services/AcademicFollowup";
 import SystemExplainer from "./pages/academic-services/SystemExplainer";
 import AdvisorSelection from "./pages/academic-services/AdvisorSelection";
 
+// General Services Pages
+import AirportPickup from "./pages/general-services/AirportPickup";
+import VisaSupport from "./pages/general-services/VisaSupport";
+import Housing from "./pages/general-services/Housing";
+import OrientationTours from "./pages/general-services/OrientationTours";
+import Transportation from "./pages/general-services/Transportation";
+import GeneralAssistance from "./pages/general-services/GeneralAssistance";
+
 // Student Pages
 import StudentLogin from "./pages/student/StudentLogin";
 import StudentDashboard from "./pages/student/StudentDashboard";
@@ -68,6 +76,12 @@ const App = () => (
             <Route path="/academic-services/system-explainer" element={<SystemExplainer />} />
             <Route path="/academic-services/advisor-selection" element={<AdvisorSelection />} />
             <Route path="/general-services" element={<GeneralServices />} />
+            <Route path="/general-services/airport-pickup" element={<AirportPickup />} />
+            <Route path="/general-services/visa-support" element={<VisaSupport />} />
+            <Route path="/general-services/housing" element={<Housing />} />
+            <Route path="/general-services/orientation-tours" element={<OrientationTours />} />
+            <Route path="/general-services/transportation" element={<Transportation />} />
+            <Route path="/general-services/general-assistance" element={<GeneralAssistance />} />
             <Route path="/research-services" element={<ResearchServices />} />
           <Route path="/how-to-start" element={<HowToStart />} />
           <Route path="/contact" element={<Contact />} />
