@@ -134,6 +134,132 @@ const MajorDetails = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
+              
+              {/* العناصر الأساسية الخمسة */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* المستندات المطلوبة */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-reverse space-x-2 font-primary text-base">
+                      <FileText className="w-5 h-5 text-primary" />
+                      <span>المستندات المطلوبة</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-primary">البكالوريوس</h5>
+                        <ul className="text-sm space-y-1">
+                          {major.requiredDocuments.bachelor.slice(0, 3).map((doc, index) => (
+                            <li key={index} className="flex items-start space-x-reverse space-x-2">
+                              <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                              <span className="font-secondary text-xs">{doc}</span>
+                            </li>
+                          ))}
+                          {major.requiredDocuments.bachelor.length > 3 && (
+                            <li className="text-xs text-muted-foreground">...والمزيد</li>
+                          )}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* نظام الدراسة */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-reverse space-x-2 font-primary text-base">
+                      <BookOpen className="w-5 h-5 text-primary" />
+                      <span>نظام الدراسة</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-muted/50 p-3 rounded-lg">
+                        <p className="font-secondary text-sm">{major.studySystem}</p>
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        <p>• امتحانات فصلية ونهائية</p>
+                        <p>• تقييم مستمر للأنشطة</p>
+                        <p>• مشاريع تطبيقية</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* الرسوم الدراسية */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-reverse space-x-2 font-primary text-base">
+                      <DollarSign className="w-5 h-5 text-primary" />
+                      <span>الرسوم الدراسية</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-secondary">البكالوريوس:</span>
+                        <span className="text-sm font-semibold text-primary">{major.studyFees.bachelor}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-secondary">الماجستير:</span>
+                        <span className="text-sm font-semibold text-primary">{major.studyFees.master}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-secondary">الدكتوراه:</span>
+                        <span className="text-sm font-semibold text-primary">{major.studyFees.doctorate}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* مدة الدراسة */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-reverse space-x-2 font-primary text-base">
+                      <Clock className="w-5 h-5 text-primary" />
+                      <span>مدة الدراسة</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-secondary">البكالوريوس:</span>
+                        <span className="text-sm font-semibold text-primary">{major.studyDuration.bachelor}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-secondary">الماجستير:</span>
+                        <span className="text-sm font-semibold text-primary">{major.studyDuration.master}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-secondary">الدكتوراه:</span>
+                        <span className="text-sm font-semibold text-primary">{major.studyDuration.doctorate}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* تفاصيل أخرى مهمة */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-reverse space-x-2 font-primary">
+                    <Award className="w-5 h-5 text-primary" />
+                    <span>تفاصيل أخرى مهمة</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {major.additionalDetails.map((detail, index) => (
+                      <div key={index} className="flex items-start space-x-reverse space-x-2">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="font-secondary text-sm">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Career Opportunities */}
               <Card>
                 <CardHeader>
@@ -154,12 +280,12 @@ const MajorDetails = () => {
                 </CardContent>
               </Card>
 
-              {/* Required Documents */}
+              {/* المستندات المطلوبة تفصيلياً */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-reverse space-x-2 font-primary">
                     <FileText className="w-5 h-5 text-primary" />
-                    <span>المستندات المطلوبة للتقديم</span>
+                    <span>المستندات المطلوبة تفصيلياً</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>

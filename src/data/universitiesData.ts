@@ -1,3 +1,5 @@
+import { createUniversityMajors } from './universityTemplates';
+
 export interface DocumentRequirements {
   bachelor: string[];
   master: string[];
@@ -16,6 +18,18 @@ export interface Major {
   availableForInternational: boolean;
   careerOpportunities: string[];
   requiredDocuments: DocumentRequirements;
+  studySystem: string; // نظام الدراسة (كورسات وبحث أم بحث فقط)
+  studyFees: {
+    bachelor: string;
+    master: string;
+    doctorate: string;
+  };
+  studyDuration: {
+    bachelor: string;
+    master: string;
+    doctorate: string;
+  };
+  additionalDetails: string[]; // تفاصيل أخرى مهمة
   faqs: Array<{
     question: string;
     answer: string;
@@ -101,27 +115,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1908,
     website: 'https://cu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-cairo`,
-      name: collegeName,
-      description: `${collegeName} - جامعة القاهرة`,
-      majors: [{
-        id: `major-${index + 1}-cairo`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('cairo', 'جامعة القاهرة')
   },
   {
     id: 'ain-shams-university',
@@ -134,27 +128,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1950,
     website: 'https://asu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-ain-shams`,
-      name: collegeName,
-      description: `${collegeName} - جامعة عين شمس`,
-      majors: [{
-        id: `major-${index + 1}-ain-shams`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('ain-shams', 'جامعة عين شمس')
   },
   {
     id: 'mansoura-university',
@@ -167,27 +141,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1972,
     website: 'https://mans.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-mansoura`,
-      name: collegeName,
-      description: `${collegeName} - جامعة المنصورة`,
-      majors: [{
-        id: `major-${index + 1}-mansoura`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('mansoura', 'جامعة المنصورة')
   },
   {
     id: 'alexandria-university',
@@ -200,27 +154,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1938,
     website: 'https://alexu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-alexandria`,
-      name: collegeName,
-      description: `${collegeName} - جامعة الإسكندرية`,
-      majors: [{
-        id: `major-${index + 1}-alexandria`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('alexandria', 'جامعة الإسكندرية')
   },
   {
     id: 'zagazig-university',
@@ -233,27 +167,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1974,
     website: 'https://zu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-zagazig`,
-      name: collegeName,
-      description: `${collegeName} - جامعة الزقازيق`,
-      majors: [{
-        id: `major-${index + 1}-zagazig`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('zagazig', 'جامعة الزقازيق')
   },
   {
     id: 'kafr-el-sheikh-university',
@@ -266,27 +180,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 2006,
     website: 'https://kfs.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-kafr-sheikh`,
-      name: collegeName,
-      description: `${collegeName} - جامعة كفر الشيخ`,
-      majors: [{
-        id: `major-${index + 1}-kafr-sheikh`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('kafr-sheikh', 'جامعة كفر الشيخ')
   },
   {
     id: 'benha-university',
@@ -299,27 +193,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 2005,
     website: 'https://bu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-benha`,
-      name: collegeName,
-      description: `${collegeName} - جامعة بنها`,
-      majors: [{
-        id: `major-${index + 1}-benha`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('benha', 'جامعة بنها')
   },
   {
     id: 'helwan-university',
@@ -332,27 +206,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1975,
     website: 'https://hu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-helwan`,
-      name: collegeName,
-      description: `${collegeName} - جامعة حلوان`,
-      majors: [{
-        id: `major-${index + 1}-helwan`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('helwan', 'جامعة حلوان')
   },
   {
     id: 'menoufia-university',
@@ -365,27 +219,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1976,
     website: 'https://mu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-menoufia`,
-      name: collegeName,
-      description: `${collegeName} - جامعة المنوفية`,
-      majors: [{
-        id: `major-${index + 1}-menoufia`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('menoufia', 'جامعة المنوفية')
   },
   {
     id: 'beni-suef-university',
@@ -398,27 +232,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 2005,
     website: 'https://bsu.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-beni-suef`,
-      name: collegeName,
-      description: `${collegeName} - جامعة بني سويف`,
-      majors: [{
-        id: `major-${index + 1}-beni-suef`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('beni-suef', 'جامعة بني سويف')
   },
   {
     id: 'tanta-university',
@@ -431,27 +245,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1972,
     website: 'https://tanta.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-tanta`,
-      name: collegeName,
-      description: `${collegeName} - جامعة طنطا`,
-      majors: [{
-        id: `major-${index + 1}-tanta`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('tanta', 'جامعة طنطا')
   },
   {
     id: 'suez-canal-university',
@@ -464,29 +258,8 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 1976,
     website: 'https://scuegypt.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-suez-canal`,
-      name: collegeName,
-      description: `${collegeName} - جامعة قناة السويس`,
-      majors: [{
-        id: `major-${index + 1}-suez-canal`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '8,000 - 15,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 65%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('suez-canal', 'جامعة قناة السويس')
   },
-  // الجامعة الأمريكية كمثال للجامعات الخاصة
   {
     id: 'al-azhar-university',
     name: 'جامعة الأزهر',
@@ -498,27 +271,7 @@ export const universitiesData: University[] = [
     totalMajors: 15,
     establishedYear: 970,
     website: 'https://azhar.edu.eg',
-    colleges: standardColleges.map((collegeName, index) => ({
-      id: `college-${index + 1}-azhar`,
-      name: collegeName,
-      description: `${collegeName} - جامعة الأزهر`,
-      majors: [{
-        id: `major-${index + 1}-azhar`,
-        name: collegeName.replace('كلية ', ''),
-        description: `دراسة متخصصة في ${collegeName.replace('كلية ', '')}`,
-        duration: '4 سنوات',
-        fees: '6,000 - 12,000 جنيه/سنة',
-        language: 'العربية',
-        requirements: 'الثانوية العامة 60%+',
-        availableForInternational: true,
-        careerOpportunities: [`أخصائي ${collegeName.replace('كلية ', '')}`, 'باحث', 'أستاذ جامعي'],
-        requiredDocuments: documentRequirements,
-        faqs: [{
-          question: `ما هي مدة دراسة ${collegeName.replace('كلية ', '')}؟`,
-          answer: '4 سنوات دراسية + سنة تدريب عملي'
-        }]
-      }]
-    }))
+    colleges: createUniversityMajors('azhar', 'جامعة الأزهر')
   }
 ];
 
