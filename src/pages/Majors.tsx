@@ -182,9 +182,9 @@ const Majors = () => {
 
   const universityStats = [
     { name: "جامعة القاهرة", programs: 15, rank: "#1 في مصر", id: "cairo-university" },
-    { name: "جامعة الأزهر", programs: 12, rank: "#1 علوم شرعية", id: "al-azhar-university" },
-    { name: "جامعة عين شمس", programs: 10, rank: "#2 في مصر", id: "ain-shams-university" },
-    { name: "الجامعة الأمريكية", programs: 8, rank: "#1 خاصة", id: "american-university" }
+    { name: "جامعة عين شمس", programs: 15, rank: "#2 في مصر", id: "ain-shams-university" },
+    { name: "جامعة المنصورة", programs: 15, rank: "#3 في مصر", id: "mansoura-university" },
+    { name: "جامعة الإسكندرية", programs: 15, rank: "#4 في مصر", id: "alexandria-university" }
   ];
 
   return (
