@@ -163,13 +163,45 @@ const MajorDetails = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {major.requiredDocuments.map((document, index) => (
-                      <div key={index} className="flex items-center space-x-reverse space-x-2">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span className="font-secondary">{document}</span>
+                  <div className="space-y-6">
+                    {/* مستندات البكالوريوس */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-3 text-primary font-primary">البكالوريوس</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {major.requiredDocuments.bachelor.map((document, index) => (
+                          <div key={index} className="flex items-center space-x-reverse space-x-2">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="font-secondary text-sm">{document}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                    
+                    {/* مستندات الماجستير */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-3 text-primary font-primary">الماجستير</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {major.requiredDocuments.master.map((document, index) => (
+                          <div key={index} className="flex items-center space-x-reverse space-x-2">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="font-secondary text-sm">{document}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* مستندات الدكتوراه */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-3 text-primary font-primary">الدكتوراه</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {major.requiredDocuments.doctorate.map((document, index) => (
+                          <div key={index} className="flex items-center space-x-reverse space-x-2">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="font-secondary text-sm">{document}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
