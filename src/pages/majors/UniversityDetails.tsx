@@ -134,6 +134,26 @@ const UniversityDetails = () => {
                   <p className="text-sm font-secondary text-muted-foreground">
                     {college.description}
                   </p>
+                  
+                  {/* الأقسام المندرجة تحت الكلية */}
+                  {college.departments && college.departments.length > 0 && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-primary font-semibold text-foreground mb-2">
+                        الأقسام المتاحة:
+                      </h4>
+                      <div className="flex flex-wrap gap-1">
+                        {college.departments.map((department, deptIndex) => (
+                          <Badge 
+                            key={deptIndex} 
+                            variant="outline" 
+                            className="text-xs bg-background/50 hover:bg-primary/10 transition-colors"
+                          >
+                            {department}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </CardHeader>
                 
                 <CardContent className="p-6">

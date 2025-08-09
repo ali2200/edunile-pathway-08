@@ -41,6 +41,7 @@ export interface College {
   name: string;
   description: string;
   majors: Major[];
+  departments?: string[]; // الأقسام المندرجة تحت الكلية
 }
 
 export interface University {
